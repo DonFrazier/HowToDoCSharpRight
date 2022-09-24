@@ -1,4 +1,15 @@
 # Source Control
+
+**Use git.**
+
+**Work from your <a title="or master">`main`</a> branch.**
+
+**Use `squash` merging to keep a straight-line branch in your history.**
+
+**Build and deploy from your `main` branch.**
+
+**Avoid modules if at all possible.**
+
 Linus gave us git and it has taken over the source control world.
 Embrace git.  There are literally thousands of commands.  I mainly use the ones I show here.  They work on any command prompt or shell.  Sometimes I have to look up a new command because I borked something.  Really though this is it.
 

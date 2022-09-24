@@ -1,10 +1,10 @@
 # HowToDoCSharpRight
-Thoughts from the trenches on how to use C# and its features to create great code that is easy to maintain, deploy and support.
-# [Motivation](./motivation.md)
-# Source Control, git has won, squash for straight line
-# Tooling, Visual Studio, VS Codes
-# Build and Deploy, yaml, ADO
-# Projects and Solutions
+Thoughts from the trenches on how to use C# and its features to create great code that is easy to maintain, deploy and support.  Done right it helps you sleep soundly even when you are on call.
+## [Motivation](./motivation.md)
+## [Source Control](./source_control.md)
+## [Tooling](./tooling.md)
+## [Build and Deploy](./build_and_deploy.md)
+## [Projects and Solutions](./projects_and_solutions.md)
 # Coding Style and .editorconfig, Whitespace wars, line length
 # Naming Things, Utility, Utils, Shared, Common, Helper, Don't Repeat Yourself
 # Linq, IEnumerable and Deferred Execution

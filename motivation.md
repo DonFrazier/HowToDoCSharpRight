@@ -1,4 +1,7 @@
 # Motivation
+
+**Highlight coding techniques and styles I have found in my experience that help to prevent bugs and create stable, maintable code.**
+
 I've been coding for decades.   That is not what motivated me to compile this list of opinions though.  I have had to debug lots of problems that can be traced back to nothing more than confusing, obfuscated, bloated, hard to read code.
 Many times I have made fix that is as simple as adding a comma or a pair of braces.  Other times there are patterns that are repeated over the life of a code base that were just wrong to begin with but permeated the code base with copy and paste speed and simplicity.  I think of this as cleaning up a mess not of my own making.
 
