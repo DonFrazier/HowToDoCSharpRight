@@ -1,6 +1,6 @@
 # HowToDoCSharpRight
 Thoughts from the trenches on how to use C# and its features to create great code that is easy to maintain, deploy and support.
-# Motivation
+# [Motivation](./motivation.md)
 # Source Control, git has won, squash for straight line
 # Tooling, Visual Studio, VS Codes
 # Build and Deploy, yaml, ADO
