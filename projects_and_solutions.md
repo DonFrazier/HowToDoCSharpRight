@@ -1,8 +1,11 @@
 # Projects and Solutions
 
 **Circular references are not allowed so plan carefully.**
+
 **Respect your choices.**
+
 **Separate for presentation, business logic and data layers in most cases.**
+
 **A base project for domain-specific objects can be useful at all levels.**
 
 Every coding assignment I've worked on has been made up of multiple projects.  These projects tend to self-distribute into the familiar presentation, business logic and data layer pieces.
