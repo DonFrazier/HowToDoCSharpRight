@@ -8,7 +8,7 @@ Thoughts from the trenches on how to use C# and its features to create great cod
 ## [Coding Style](./coding_style.md) and .editorconfig, Whitespace wars, line length
 # Naming Things, Utility, Utils, Shared, Common, Helper, Don't Repeat Yourself
 # Designing to Interfaces
-# [Hiding](./hiding_things.md) the Environment and Platform behind Interfaces, Environment, Files System, await Sleep, Delay
+# [Hiding Things](./hiding_things.md) the Environment and Platform behind Interfaces, Environment, Files System, await Sleep, Delay
 # [Primitive Obsession](./primitive_obession.md) and why losing it is a good idea, no dependencies, Domain Model, Domain Knowledge
 # Observability, Logging, Metrics
 # Polly
