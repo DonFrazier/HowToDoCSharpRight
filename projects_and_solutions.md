@@ -56,6 +56,7 @@ Move the namespace `using` declarations to your project file.  You can include s
 
 Note you can also include global aliases for types.  This is another very nice feature that has been elevated from per-file to per-project.  If you have long type names consider adding shorter global aliases for them in the .csproj file.
 
+This is also helpful if you have objects in different .net namespaces that share the same name.  Define project-wide aliases to help clarify which ***Part*** is the ***Part*** that is the ***Part*** in the current scope.
 ```
   <ItemGroup>
     <Using Include="System.Linq" />
@@ -63,7 +64,11 @@ Note you can also include global aliases for types.  This is another very nice f
 
     <Using Include="System.String" Static="true" />
 
-    <Using Alias="u" Include="System.UInt32" />
+    <Using Alias="u32 Include="System.UInt32" />
+    <!-- Parts is Parts except when it is not always Parts -->
+    <Using Alias="FooPart Include="My.Company.Feature.Data.Foo.Part" />
+    <Using Alias="BizPart Include="My.Company.BusinesssLogic.Part" />
+    <Using Alias="UIPart Include="My.Company.UserInterface.Model.Part" />
   </ItemGroup>
 ```
 
