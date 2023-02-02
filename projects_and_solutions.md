@@ -36,7 +36,7 @@ There is one category of projects that may be useful and may be referenced by an
 
 Nulls are not evil but they are problematic.  In your .csproj files enable the [Nullable](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/nullable-reference-types) option so the compiler will automagically warn you about possible null references.  This is one of the best new language features in some time.  Use it every where.  There is also an option to enable it file by file.  If you are creating new classes, consider including it with the directive.
 
-Always use the latest version of C# by setting `<LangVersion>`.
+Be careful with the `latest` version of C# by setting `<LangVersion>` since it may use features not installed on your platform.  My recommendation is to set this to `default` unless you have a reason for something else.  If you choose a specific version chances are no one will ever change it and your project will be locked into that level forever.
 
 [Implicit Usings](https://learn.microsoft.com/en-us/dotnet/core/tutorials/top-level-templates) can also reduce the boilerplate at the top of a file.  I think this option will give way to the project declaration in larger projects but it is useful for your one-off experiments.
 
@@ -45,7 +45,7 @@ Keep a clean build by treating warnings as errors.  1,000 warnings in a build hi
 ```
 <PropertyGroup>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>default</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
