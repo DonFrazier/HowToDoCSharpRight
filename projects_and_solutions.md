@@ -77,5 +77,4 @@ The primitives project should have no dependencies, including nuget or other pac
 
 An easy example is something like Person that has a first name, middle name and last name.  There are rules about how long your data layer allows names to be, maybe these differ between first, middle and last.  Rather than just use strings for First, Middle and Last define a type for these name parts and use them instead of making them strings.  I'll discuss this more in 
 
-
 [Back](./build_and_deploy.md)  [Next](./coding_style.md)
