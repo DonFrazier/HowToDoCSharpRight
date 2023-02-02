@@ -4,9 +4,15 @@
 
 **Respect your choices.**
 
-**Separate for presentation, business logic and data layers in most cases.**
+**Separate project by presentation, business logic and data layers in most cases.**
 
 **A base project for domain-specific objects can be useful at all levels.**
+
+**Enable Nullable**
+
+**Use project using declarations.**
+
+**Treat Warnings as Errors**
 
 Every coding assignment I've worked on has been made up of multiple projects.  These projects tend to self-distribute into the familiar presentation, business logic and data layer pieces.
 
@@ -28,6 +34,45 @@ Separating object lifetime and state change into factory, accessor and mutator c
 
 There is one category of projects that may be useful and may be referenced by any other project.  This is your project for your domain models.  Just as C# defines data types like int, string and bool that are used every where, your application has objects that need to behave the same everywhere.  See [Primitive Obession](./primitive_obession.md) for more details.
 
+Nulls are not evil but they are problematic.  In your .csproj files enable the [Nullable](https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/nullable-reference-types) option so the compiler will automagically warn you about possible null references.  This is one of the best new language features in some time.  Use it every where.  There is also an option to enable it file by file.  If you are creating new classes, consider including it with the directive.
+
+Be careful with the `latest` version of C# by setting `<LangVersion>` since it may use features not installed on your platform.  My recommendation is to set this to `default` unless you have a reason for something else.  If you choose a specific version chances are no one will ever change it and your project will be locked into that level forever.
+
+[Implicit Usings](https://learn.microsoft.com/en-us/dotnet/core/tutorials/top-level-templates) can also reduce the boilerplate at the top of a file.  I think this option will give way to the project declaration in larger projects but it is useful for your one-off experiments.
+
+Keep a clean build by treating warnings as errors.  1,000 warnings in a build hide issues that the compiler thinks you should know about but that are not necessarily errors.  If you introduce a new one the existing horde will obscure it.  Clean builds should be a priority and this option helps keep questionable code out of the deployed code.
+
+```
+<PropertyGroup>
+    <Nullable>enable</Nullable>
+    <LangVersion>default</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+</PropertyGroup>
+```
+
+Move the namespace `using` declarations to your project file.  You can include static usings globally.  I like to include `System.String` just so I can use `IsNullOrWhitespace(somestring)` and write just a bit less code. Be aware that you may still have conflicts and have to fully qualify a static method name.  For example System.Guid also has an Empty() property that conflicts with System.String when used like this.
+
+Note you can also include global aliases for types.  This is another very nice feature that has been elevated from per-file to per-project.  If you have long type names consider adding shorter global aliases for them in the .csproj file.
+
+This is also helpful if you have objects in different .net namespaces that share the same name.  Define project-wide aliases to help clarify which ***Part*** is the ***Part*** that is the ***Part*** in the current scope.
+```
+  <ItemGroup>
+    <Using Include="System.Linq" />
+    <Using Include="System.Text" />
+
+    <Using Include="System.String" Static="true" />
+
+    <Using Alias="u32 Include="System.UInt32" />
+    <!-- Parts is Parts except when it is not always Parts -->
+    <Using Alias="FooPart Include="My.Company.Feature.Data.Foo.Part" />
+    <Using Alias="BizPart Include="My.Company.BusinesssLogic.Part" />
+    <Using Alias="UIPart Include="My.Company.UserInterface.Model.Part" />
+  </ItemGroup>
+```
+
+move to primitive obsession section.
 The primitives project should have no dependencies, including nuget or other package dependencies.
 
 An easy example is something like Person that has a first name, middle name and last name.  There are rules about how long your data layer allows names to be, maybe these differ between first, middle and last.  Rather than just use strings for First, Middle and Last define a type for these name parts and use them instead of making them strings.  I'll discuss this more in 
